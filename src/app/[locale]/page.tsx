@@ -13,9 +13,12 @@ export default async function Home({
   // @ts-ignore
   const menu = [0, 1, 2].map((item: number) => {
     return (
-      <Button key={item} variant="ghost">
+      <Button key={item} variant="ghost" asChild>
         {/* @ts-ignore */}
-        <Link href={`/${t(`a${item}.url`)}`}>{t(`a${item}.name`)}</Link>
+        <Link href={`/${locale}${t(`a${item}.url`)}`}>
+          {/* @ts-ignore */}
+          {t(`a${item}.name`)}
+        </Link>
       </Button>
     );
   });
