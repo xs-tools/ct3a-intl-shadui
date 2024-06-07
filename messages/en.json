@@ -2,5 +2,19 @@
   "Index": {
     "title": "Discover Interesting Tools | xs.tools",
     "description": "xs.tools - Discover interesting tools to help independent developers launch products quickly and find inspiration!"
+  },
+  "Menu": {
+    "a0": {
+      "name": "Home",
+      "url": "/"
+    },
+    "a1": {
+      "name": "About",
+      "url": "/about"
+    },
+    "a2": {
+      "name": "Submit",
+      "url": "/submit"
+    }
   }
 }

@@ -2,5 +2,20 @@
   "Index": {
     "title": "发现有趣的小工具 | xs.tools",
     "description": "xs.tools - 发现有趣的小工具，帮助独立开发者快速上线产品，寻找灵感！"
+  },
+  "Menu": {
+    "length": 3,
+    "a0": {
+      "name": "首页",
+      "url": "/"
+    },
+    "a1": {
+      "name": "关于",
+      "url": "/about"
+    },
+    "a2": {
+      "name": "提交",
+      "url": "/submit"
+    }
   }
 }
