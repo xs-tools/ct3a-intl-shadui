@@ -15,7 +15,7 @@ export default async function Home({
     return (
       <Button key={item} variant="ghost">
         {/* @ts-ignore */}
-        <Link href="/">{t(`a${item}.name`)}</Link>
+        <Link href={`/${t(`a${item}.url`)}`}>{t(`a${item}.name`)}</Link>
       </Button>
     );
   });
@@ -25,7 +25,7 @@ export default async function Home({
       <header className="h-16 border border-border bg-background/90">
         <div className="container flex h-full justify-between">
           {/* left */}
-          <div className="flex w-48 items-center bg-primary text-xl font-bold uppercase">
+          <div className="flex w-48 items-center text-xl font-bold uppercase">
             <Iconify
               fontSize={36}
               className="mr-2"
@@ -40,7 +40,7 @@ export default async function Home({
           </div>
 
           {/* right */}
-          <div className="w-48 bg-primary">right</div>
+          <div className="flex w-48 items-center">right</div>
         </div>
       </header>
     </main>
