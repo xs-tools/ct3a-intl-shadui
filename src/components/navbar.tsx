@@ -3,7 +3,6 @@ import { Iconify } from "./iconify";
 import { getTranslations } from "next-intl/server";
 import { Button } from "./ui/button";
 import { LanguageToggle } from "./language-toggle";
-import { ThemeProvider } from "./theme-provider";
 import { ModeToggle } from "./mode-toggle";
 
 export const Navbar = async ({ locale }: { locale: string }) => {
