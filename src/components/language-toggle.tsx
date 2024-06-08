@@ -22,7 +22,7 @@ export function LanguageToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">
+        <Button variant="ghost">
           <Iconify icon={"ooui:language"} fontSize={20} className="mr-2" />{" "}
           {languages[nowLocale].name}
         </Button>

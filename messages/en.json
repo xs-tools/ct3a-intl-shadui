@@ -6,7 +6,6 @@
     "notice": "For more tools for independent developers, visit: "
   },
   "Menu": {
-    "length": 2,
     "a0": {
       "name": "Home",
       "url": "/"

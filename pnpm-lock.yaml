@@ -47,6 +47,9 @@ dependencies:
   next-intl:
     specifier: ^3.14.1
     version: 3.14.1(next@14.2.3)(react@18.3.1)
+  next-themes:
+    specifier: ^0.3.0
+    version: 0.3.0(react-dom@18.3.1)(react@18.3.1)
   react:
     specifier: ^18.3.0
     version: 18.3.1
@@ -2854,6 +2857,16 @@ packages:
       next: 14.2.3(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       use-intl: 3.14.1(react@18.3.1)
+    dev: false
+
+  /next-themes@0.3.0(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+      react-dom: ^16.8 || ^17 || ^18
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
     dev: false
 
   /next@14.2.3(react-dom@18.3.1)(react@18.3.1):

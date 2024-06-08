@@ -26,22 +26,23 @@ export default async function Page({
       </div>
       <div className="mx-auto max-w-2xl py-32 sm:py-48">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+          <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-muted-foreground ring-1 ring-border transition-all hover:ring-border/20">
             {t("notice")}
-            <a
+            <Link
+              target="_blank"
               href="https://xs.tools"
               className="font-semibold text-indigo-600"
             >
               <span className="absolute inset-0" aria-hidden="true" />
               xs.tools <span aria-hidden="true">&rarr;</span>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
             {t("title")}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 text-muted-foreground">
             {t("description")}
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-12">

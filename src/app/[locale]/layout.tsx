@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { Navbar } from "@/components/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -39,9 +40,16 @@ export default async function LocaleLayout({
       <body>
         <TRPCReactProvider>
           <NextIntlClientProvider messages={messages}>
-            <Navbar locale={locale} />
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Navbar locale={locale} />
 
-            {children}
+              {children}
+            </ThemeProvider>
           </NextIntlClientProvider>
         </TRPCReactProvider>
       </body>

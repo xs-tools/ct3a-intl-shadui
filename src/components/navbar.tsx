@@ -3,23 +3,25 @@ import { Iconify } from "./iconify";
 import { getTranslations } from "next-intl/server";
 import { Button } from "./ui/button";
 import { LanguageToggle } from "./language-toggle";
+import { ThemeProvider } from "./theme-provider";
+import { ModeToggle } from "./mode-toggle";
 
 export const Navbar = async ({ locale }: { locale: string }) => {
   const t = await getTranslations({ locale, namespace: "Menu" });
-  console.log(t("length"));
 
   // @ts-ignore
-  const menu = [0, 1].map((item: number) => {
+  const menu = new Array(2).fill(0).map((_, i) => {
     return (
-      <Button key={item} variant="ghost" asChild>
+      <Button key={i} variant="ghost" asChild>
         {/* @ts-ignore */}
-        <Link href={`/${t(`a${item}.url`)}`}>
+        <Link href={`/${t(`a${i}.url`)}`}>
           {/* @ts-ignore */}
-          {t(`a${item}.name`)}
+          {t(`a${i}.name`)}
         </Link>
       </Button>
     );
   });
+
   return (
     <header className="sticky top-0 z-50 h-20">
       <div className="container flex h-full justify-between">
@@ -41,8 +43,9 @@ export const Navbar = async ({ locale }: { locale: string }) => {
         </div>
 
         {/* right */}
-        <div className="flex w-48 items-center">
+        <div className="flex w-48 items-center gap-4">
           <LanguageToggle />
+          <ModeToggle />
         </div>
       </div>
     </header>
