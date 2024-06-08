@@ -1,50 +1,36 @@
 import { Iconify } from "@/components/iconify";
 import { Badge } from "@/components/ui/badge";
+import { getTranslations } from "next-intl/server";
 
-const features = [
-  {
-    name: "Invite team members",
-    description:
-      "Rerum repellat labore necessitatibus reprehenderit molestiae praesentium.",
-  },
-  {
-    name: "List view",
-    description:
-      "Corporis asperiores ea nulla temporibus asperiores non tempore assumenda aut.",
-  },
-  {
-    name: "Keyboard shortcuts",
-    description:
-      "In sit qui aliquid deleniti et. Ad nobis sunt omnis. Quo sapiente dicta laboriosam.",
-  },
-  {
-    name: "Calendars",
-    description:
-      "Sed rerum sunt dignissimos ullam. Iusto iure occaecati voluptate eligendi fugiat sequi.",
-  },
-  {
-    name: "Notifications",
-    description:
-      "Quos inventore harum enim nesciunt. Aut repellat rerum omnis adipisci.",
-  },
-  {
-    name: "Boards",
-    description:
-      "Quae sit sunt excepturi fugit veniam voluptatem ipsum commodi.",
-  },
-  {
-    name: "Reporting",
-    description:
-      "Eos laudantium repellat sed architecto earum unde incidunt. Illum sit dolores voluptatem.",
-  },
-  {
-    name: "Mobile app",
-    description:
-      "Nulla est saepe accusamus nostrum est est. Fugit voluptatum omnis quidem voluptatem.",
-  },
-];
+export default async function Example({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale, namespace: "About" });
+  const features = Array.from({ length: 8 })
+    .fill(0)
+    .map((_, index) => {
+      const i = index + 1;
+      // @ts-ignore
+      const name = t(`a${i}.name`);
+      // @ts-ignore
+      const desc = t(`a${i}.description`);
+      return (
+        <div key={i} className="relative pl-9">
+          <dt className="font-semibold text-gray-900">
+            <Iconify
+              icon={"lucide:check"}
+              className="absolute left-0 top-1 h-5 w-5 text-indigo-500"
+              aria-hidden="true"
+            />
+            {name}
+          </dt>
+          <dd className="mt-2">{desc}</dd>
+        </div>
+      );
+    });
 
-export default function Example() {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -70,19 +56,7 @@ export default function Example() {
             </p>
           </div>
           <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
-            {features.map((feature) => (
-              <div key={feature.name} className="relative pl-9">
-                <dt className="font-semibold text-gray-900">
-                  <Iconify
-                    icon={"lucide:check"}
-                    className="absolute left-0 top-1 h-5 w-5 text-indigo-500"
-                    aria-hidden="true"
-                  />
-                  {feature.name}
-                </dt>
-                <dd className="mt-2">{feature.description}</dd>
-              </div>
-            ))}
+            {features}
           </dl>
         </div>
       </div>

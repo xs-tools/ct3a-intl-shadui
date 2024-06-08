@@ -6,9 +6,10 @@ import { LanguageToggle } from "./language-toggle";
 
 export const Navbar = async ({ locale }: { locale: string }) => {
   const t = await getTranslations({ locale, namespace: "Menu" });
+  console.log(t("length"));
 
   // @ts-ignore
-  const menu = [0, 1, 2].map((item: number) => {
+  const menu = [0, 1].map((item: number) => {
     return (
       <Button key={item} variant="ghost" asChild>
         {/* @ts-ignore */}

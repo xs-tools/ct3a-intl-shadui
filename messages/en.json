@@ -6,6 +6,7 @@
     "notice": "For more tools for independent developers, visit: "
   },
   "Menu": {
+    "length": 2,
     "a0": {
       "name": "Home",
       "url": "/"
@@ -13,10 +14,40 @@
     "a1": {
       "name": "About",
       "url": "/about"
+    }
+  },
+  "About": {
+    "a1": {
+      "name": "Invite team members",
+      "description": "Help independent developers launch products quickly and find inspiration!"
     },
     "a2": {
-      "name": "Submit",
-      "url": "/submit"
+      "name": "Create a project",
+      "description": "Help independent developers launch products quickly and find inspiration!"
+    },
+    "a3": {
+      "name": "Manage your project",
+      "description": "Help independent developers launch products quickly and find inspiration!"
+    },
+    "a4": {
+      "name": "Discover projects",
+      "description": "Help independent developers launch products quickly and find inspiration!"
+    },
+    "a5": {
+      "name": "Get help",
+      "description": "Help independent developers launch products quickly and find inspiration!"
+    },
+    "a6": {
+      "name": "Settings",
+      "description": "Help independent developers launch products quickly and find inspiration!"
+    },
+    "a7": {
+      "name": "Logout",
+      "description": "Help independent developers launch products quickly and find inspiration!"
+    },
+    "a8": {
+      "name": "Login",
+      "description": "Help independent developers launch products quickly and find inspiration!"
     }
   }
 }
