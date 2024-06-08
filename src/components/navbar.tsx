@@ -20,7 +20,7 @@ export const Navbar = async ({ locale }: { locale: string }) => {
     );
   });
   return (
-    <header className="h-16 border border-border bg-background/90">
+    <header className="sticky top-0 z-50 h-20">
       <div className="container flex h-full justify-between">
         {/* left */}
         <div className="w-48 cursor-pointer text-xl font-bold uppercase">
