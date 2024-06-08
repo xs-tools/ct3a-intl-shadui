@@ -10,31 +10,31 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { languages, locales } from "@/i18n";
+import { usePathname, useRouter } from "@/navigation";
+import { useLocale } from "next-intl";
 
 export function LanguageToggle() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const nowLocale = useLocale() as keyof typeof languages;
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon"></Button>
+        <Button variant="outline">{languages[nowLocale].name}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {locales.map((locale) => (
-          <DropdownMenuItem key={locale}>
+          <DropdownMenuItem
+            key={locale}
+            onClick={() => router.replace(pathname, { locale })}
+          >
             <span className="relative top-[1px] mr-2">
               {languages[locale].icon}
             </span>{" "}
             {languages[locale].name}
           </DropdownMenuItem>
         ))}
-        {/* <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem> */}
       </DropdownMenuContent>
     </DropdownMenu>
   );

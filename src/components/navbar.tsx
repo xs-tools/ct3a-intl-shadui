@@ -2,6 +2,7 @@ import { Link } from "@/navigation";
 import { Iconify } from "./iconify";
 import { getTranslations } from "next-intl/server";
 import { Button } from "./ui/button";
+import { LanguageToggle } from "./language-toggle";
 
 export const Navbar = async ({ locale }: { locale: string }) => {
   const t = await getTranslations({ locale, namespace: "Menu" });
@@ -39,7 +40,9 @@ export const Navbar = async ({ locale }: { locale: string }) => {
         </div>
 
         {/* right */}
-        <div className="flex w-48 items-center">right</div>
+        <div className="flex w-48 items-center">
+          <LanguageToggle />
+        </div>
       </div>
     </header>
   );
