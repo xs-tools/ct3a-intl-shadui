@@ -12,6 +12,7 @@ import {
 import { languages, locales } from "@/i18n";
 import { usePathname, useRouter } from "@/navigation";
 import { useLocale } from "next-intl";
+import { Iconify } from "./iconify";
 
 export function LanguageToggle() {
   const router = useRouter();
@@ -21,7 +22,10 @@ export function LanguageToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">{languages[nowLocale].name}</Button>
+        <Button variant="outline">
+          <Iconify icon={"ooui:language"} fontSize={20} className="mr-2" />{" "}
+          {languages[nowLocale].name}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {locales.map((locale) => (

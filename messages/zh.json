@@ -2,7 +2,8 @@
   "Index": {
     "title": "发现有趣的小工具",
     "description": "帮助独立开发者快速上线产品，寻找灵感！",
-    "started": "使用此模板"
+    "started": "使用此模板",
+    "notice": "有关独立开发人员的更多工具，请访问："
   },
   "Menu": {
     "length": 3,

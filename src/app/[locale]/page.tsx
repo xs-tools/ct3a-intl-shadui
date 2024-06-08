@@ -27,10 +27,13 @@ export default async function Page({
       <div className="mx-auto max-w-2xl py-32 sm:py-48">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-            Announcing our next round of funding.{" "}
-            <a href="#" className="font-semibold text-indigo-600">
+            {t("notice")}
+            <a
+              href="https://xs.tools"
+              className="font-semibold text-indigo-600"
+            >
               <span className="absolute inset-0" aria-hidden="true" />
-              Read more <span aria-hidden="true">&rarr;</span>
+              xs.tools <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </div>
@@ -41,14 +44,23 @@ export default async function Page({
           <p className="mt-6 text-lg leading-8 text-gray-600">
             {t("description")}
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button size="lg" asChild className="h-14 gap-2">
+          <div className="mt-10 flex items-center justify-center gap-x-12">
+            <Button size="lg" asChild>
+              <Link
+                href="https://github.com/new?template_name=ct3a-intl-shadui&template_owner=xs-tools"
+                target="_blank"
+              >
+                {t("started")}
+              </Link>
+            </Button>
+
+            <Button size="lg" asChild variant="outline">
               <Link
                 href="https://github.com/xs-tools/ct3a-intl-shadui"
                 target="_blank"
               >
-                <Iconify icon="mdi:github" fontSize={36} />
-                {t("started")}
+                <Iconify icon="mdi:github" fontSize={24} className="mr-2" />
+                Github
               </Link>
             </Button>
           </div>
