@@ -1,11 +1,12 @@
-import { Link } from "@/navigation";
-import { Iconify } from "./iconify";
-import { getTranslations } from "next-intl/server";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { LanguageToggle } from "./language-toggle";
 import { ModeToggle } from "./mode-toggle";
+import { Iconify } from "./iconify";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/navigation";
 
-export const Navbar = async ({ locale }: { locale: string }) => {
+export async function Navbar({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "Menu" });
 
   // @ts-ignore
@@ -13,7 +14,7 @@ export const Navbar = async ({ locale }: { locale: string }) => {
     return (
       <Button key={i} variant="ghost" asChild>
         {/* @ts-ignore */}
-        <Link href={`/${t(`a${i}.url`)}`}>
+        <Link href={`${t(`a${i}.url`)}`}>
           {/* @ts-ignore */}
           {t(`a${i}.name`)}
         </Link>
@@ -21,32 +22,53 @@ export const Navbar = async ({ locale }: { locale: string }) => {
     );
   });
 
+  const Logo = () => {
+    return (
+      <Link
+        href={`/`}
+        className="flex h-full items-center text-xl font-bold uppercase"
+      >
+        <Iconify fontSize={36} className="mr-4" icon="pepicons-pencil:swords" />
+        xs.tool
+      </Link>
+    );
+  };
+
   return (
-    <header className="sticky top-0 z-50 h-20">
-      <div className="container flex h-full justify-between">
+    <header className="sticky top-0 z-50 flex h-20 items-center gap-4 px-4 md:px-6">
+      <div className="container hidden items-center justify-between md:flex">
         {/* left */}
-        <div className="w-48 cursor-pointer text-xl font-bold uppercase">
-          <Link href={`/`} className="flex h-full items-center">
-            <Iconify
-              fontSize={36}
-              className="mr-2"
-              icon="pepicons-pencil:swords"
-            />
-            xs.tool
-          </Link>
+        <div className="w-48 cursor-pointer">
+          <Logo />
         </div>
-
         {/* center */}
-        <div className="flex flex-1 items-center justify-center gap-4">
-          {menu}
-        </div>
-
+        <nav className="flex h-full gap-6 text-lg font-medium">{menu}</nav>
         {/* right */}
-        <div className="flex w-48 items-center gap-4">
+        <div className="flex w-48 gap-4">
           <LanguageToggle />
           <ModeToggle />
         </div>
       </div>
+
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline" size="icon" className="shrink-0 md:hidden">
+            <Iconify icon={"lucide:menu"} fontSize={20} />
+            <span className="sr-only">Toggle navigation menu</span>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left" className="flex flex-col justify-between">
+          <nav className="grid gap-6 text-lg font-medium">
+            <Logo />
+            {menu}
+          </nav>
+
+          <div className="flex justify-end">
+            <LanguageToggle />
+            <ModeToggle />
+          </div>
+        </SheetContent>
+      </Sheet>
     </header>
   );
-};
+}
